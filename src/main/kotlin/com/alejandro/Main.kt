@@ -6,6 +6,10 @@ import com.alejandro.c03operators.chapter03
 import com.alejandro.c04controlflow.chapter04
 import com.alejandro.c05functions.chapter05
 import com.alejandro.c06nullsafety.chapter06
+import com.alejandro.c07classes.chapter07
+import com.alejandro.c08inheritance.chapter08
+import com.alejandro.c09dataclasses.chapter09
+import com.alejandro.c10enums.chapter10
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -40,6 +44,10 @@ val chapters = listOf(
     chapter04,
     chapter05,
     chapter06,
+    chapter07,
+    chapter08,
+    chapter09,
+    chapter10,
 )
 
 fun main(args: Array<String>) {
