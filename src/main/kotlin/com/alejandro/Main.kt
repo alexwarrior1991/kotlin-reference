@@ -24,6 +24,8 @@ import com.alejandro.c21operatoroverloading.chapter21
 import com.alejandro.c22destructuring.chapter22
 import com.alejandro.c23annotations.chapter23
 import com.alejandro.c24reflection.chapter24
+import com.alejandro.c25stdlib.chapter25
+import com.alejandro.c26files.chapter26
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -76,6 +78,8 @@ val chapters = listOf(
     chapter22,
     chapter23,
     chapter24,
+    chapter25,
+    chapter26,
 )
 
 fun main(args: Array<String>) {
