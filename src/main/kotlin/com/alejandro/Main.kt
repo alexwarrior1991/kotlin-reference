@@ -20,6 +20,10 @@ import com.alejandro.c17extensions.chapter17
 import com.alejandro.c18delegation.chapter18
 import com.alejandro.c19exceptions.chapter19
 import com.alejandro.c20typechecks.chapter20
+import com.alejandro.c21operatoroverloading.chapter21
+import com.alejandro.c22destructuring.chapter22
+import com.alejandro.c23annotations.chapter23
+import com.alejandro.c24reflection.chapter24
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -68,6 +72,10 @@ val chapters = listOf(
     chapter18,
     chapter19,
     chapter20,
+    chapter21,
+    chapter22,
+    chapter23,
+    chapter24,
 )
 
 fun main(args: Array<String>) {
