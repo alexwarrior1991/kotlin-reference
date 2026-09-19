@@ -29,6 +29,7 @@ import com.alejandro.c26files.chapter26
 import com.alejandro.c27javainterop.chapter27
 import com.alejandro.c28coroutines.chapter28
 import com.alejandro.c29dsl.chapter29
+import com.alejandro.c30testing.chapter30
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -86,6 +87,7 @@ val chapters = listOf(
     chapter27,
     chapter28,
     chapter29,
+    chapter30,
 )
 
 fun main(args: Array<String>) {
