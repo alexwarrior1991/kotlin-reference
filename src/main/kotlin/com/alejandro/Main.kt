@@ -1,6 +1,9 @@
 package com.alejandro
 
 import com.alejandro.c01basics.chapter01
+import com.alejandro.c02types.chapter02
+import com.alejandro.c03operators.chapter03
+import com.alejandro.c04controlflow.chapter04
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -30,6 +33,9 @@ import com.alejandro.infra.Launcher
  */
 val chapters = listOf(
     chapter01,
+    chapter02,
+    chapter03,
+    chapter04,
 )
 
 fun main(args: Array<String>) {
