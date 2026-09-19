@@ -14,6 +14,9 @@ import com.alejandro.c11sealed.chapter11
 import com.alejandro.c12generics.chapter12
 import com.alejandro.c13collections.chapter13
 import com.alejandro.c14sequences.chapter14
+import com.alejandro.c15lambdas.chapter15
+import com.alejandro.c16scopefunctions.chapter16
+import com.alejandro.c17extensions.chapter17
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -56,6 +59,9 @@ val chapters = listOf(
     chapter12,
     chapter13,
     chapter14,
+    chapter15,
+    chapter16,
+    chapter17,
 )
 
 fun main(args: Array<String>) {
