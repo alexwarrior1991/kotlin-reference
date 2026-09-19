@@ -10,6 +10,8 @@ import com.alejandro.c07classes.chapter07
 import com.alejandro.c08inheritance.chapter08
 import com.alejandro.c09dataclasses.chapter09
 import com.alejandro.c10enums.chapter10
+import com.alejandro.c11sealed.chapter11
+import com.alejandro.c12generics.chapter12
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -48,6 +50,8 @@ val chapters = listOf(
     chapter08,
     chapter09,
     chapter10,
+    chapter11,
+    chapter12,
 )
 
 fun main(args: Array<String>) {
