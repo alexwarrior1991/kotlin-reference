@@ -12,6 +12,8 @@ import com.alejandro.c09dataclasses.chapter09
 import com.alejandro.c10enums.chapter10
 import com.alejandro.c11sealed.chapter11
 import com.alejandro.c12generics.chapter12
+import com.alejandro.c13collections.chapter13
+import com.alejandro.c14sequences.chapter14
 import com.alejandro.infra.Launcher
 
 // =====================================================================================
@@ -52,6 +54,8 @@ val chapters = listOf(
     chapter10,
     chapter11,
     chapter12,
+    chapter13,
+    chapter14,
 )
 
 fun main(args: Array<String>) {
