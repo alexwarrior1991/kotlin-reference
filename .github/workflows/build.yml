@@ -1,0 +1,70 @@
+# =====================================================================================
+#  Integración continua de kotlin-reference.
+#
+#  Lo que de verdad protege este workflow es el `SmokeTest`: ejecuta las 411 demos del
+#  repositorio y falla si alguna lanza o no imprime nada. Sin él, estos ficheros serían
+#  código que COMPILA; con él, son código VERIFICADO.
+# =====================================================================================
+name: build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+# Un push nuevo sobre la misma rama cancela la ejecución anterior: en un PR activo
+# sólo interesa el resultado del último commit.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      # Todo el repositorio está escrito en español. Sin una configuración regional
+      # UTF-8, `sun.jnu.encoding` se queda en POSIX y la JVM no puede escribir rutas
+      # de fichero con acentos: eso rompe la compilación, no la salida.
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      # `jvmToolchain(21)` (leído de kotlinReference.jdk en gradle.properties) se
+      # satisface por autodetección con este JDK, así que Gradle no necesita descargar
+      # ninguno ni contactar con foojay.
+      - name: Preparar el JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      # Valida el wrapper y cachea la distribución de Gradle y las dependencias.
+      - name: Preparar Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      # Compila Kotlin + Java y ejecuta los 300 tests, incluido el test de humo.
+      - name: Compilar y testear
+        run: ./gradlew build --no-daemon --console=plain
+
+      # El test de humo llama a `demo.action()` directamente. Este paso comprueba
+      # además el camino real de entrada (Main.kt -> Launcher) sobre los 31 capítulos,
+      # que en los tests sólo se prueba contra capítulos de mentira.
+      - name: Ejecutar las 411 demos desde el lanzador
+        run: ./gradlew run -q --console=plain --no-daemon --args="all"
+
+      - name: Publicar el informe de tests
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-de-tests
+          path: build/reports/tests/test
+          retention-days: 7
+          if-no-files-found: ignore

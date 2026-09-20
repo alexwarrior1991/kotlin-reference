@@ -289,6 +289,13 @@ Qué hay dentro:
 - **`c31exercises/`** — una clase de test por ejercicio, validando la solución
   propuesta. Si rompes una al experimentar, te enteras.
 
+### En cada push y cada pull request
+
+`.github/workflows/build.yml` ejecuta en GitHub Actions lo mismo que ejecutas tú:
+`./gradlew build` (compilación mixta Kotlin + Java y los 300 tests) y después el
+recorrido completo de las 411 demos desde el lanzador. Si algún test falla, el informe
+HTML queda como artefacto descargable de la ejecución.
+
 ---
 
 ## Problemas frecuentes
